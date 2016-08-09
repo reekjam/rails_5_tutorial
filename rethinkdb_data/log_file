@@ -1,0 +1,15 @@
+2016-08-09T15:39:51.648246000 0.328206s notice: Recursively removing directory /Users/rickrieta/code/rails_5_tutorial/rethinkdb_data/tmp
+2016-08-09T15:39:51.649649000 0.329613s notice: Initializing directory /Users/rickrieta/code/rails_5_tutorial/rethinkdb_data
+2016-08-09T15:39:51.649733000 0.329693s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/rickrieta/code/rails_5_tutorial/rethinkdb_data' did not already exist or is empty.)
+2016-08-09T15:39:51.649781000 0.329740s notice: Running rethinkdb 2.3.4 (CLANG 7.3.0 (clang-703.0.31))...
+2016-08-09T15:39:51.653888000 0.333848s notice: Running on Darwin 15.6.0 x86_64
+2016-08-09T15:39:51.653917000 0.333876s notice: Loading data from directory /Users/rickrieta/code/rails_5_tutorial/rethinkdb_data
+2016-08-09T15:39:51.712803000 0.392763s info: Automatically using cache size of 2308 MB
+2016-08-09T15:39:51.714024000 0.393983s notice: Listening for intracluster connections on port 29015
+2016-08-09T15:39:51.715193000 0.395152s notice: Listening for client driver connections on port 28015
+2016-08-09T15:39:51.715292000 0.395251s notice: Listening for administrative HTTP connections on port 8080
+2016-08-09T15:39:51.715299000 0.395258s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2016-08-09T15:39:51.715302000 0.395261s notice: Listening on driver addresses: 127.0.0.1, ::1
+2016-08-09T15:39:51.715304000 0.395263s notice: Listening on http addresses: 127.0.0.1, ::1
+2016-08-09T15:39:51.715307000 0.395266s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-08-09T15:39:51.715311000 0.395269s notice: Server ready, "workbase_local_h57" 3800d954-89b6-4b73-87c0-2ed7230c2e8e
