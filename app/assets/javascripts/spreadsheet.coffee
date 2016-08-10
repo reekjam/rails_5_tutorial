@@ -52,6 +52,16 @@ App.spreadsheet =
       contextMenu: true
     )
 
+    @hot.acquireEditLock = (editor, callback) =>
+      location = {r: editor.row, c: editor.col}
+      @cell_lock_callback[location] = callback
+      App.active_users.lock_cell(location)
+
+    @hot.releaseEditLock = (editor, callback) =>
+      location = {r: editor.row, c: editor.col}
+      App.active_users.unlock_cell(location)
+      callback()
+
   select_cells: (cells) ->
     App.active_users.select_cells(r: cells[0], c: cells[1], r2: cells[2], c2: cells[3])
 
@@ -78,5 +88,9 @@ App.spreadsheet =
     location = r: update.location[0], c: update.location[1]
     value = update.value
     @hot.setDataAtCell(location.r, location.c, value, 'remote')
+
+    if update.lock == @current_user.id
+      @cell_lock_callback[location]?()
+      delete @cell_lock_callback[location]
 
 $ -> App.spreadsheet.setup()
