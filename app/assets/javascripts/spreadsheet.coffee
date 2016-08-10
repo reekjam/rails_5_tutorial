@@ -37,6 +37,14 @@ App.spreadsheet =
     @hot = new Handsontable(container,
       afterSelection: () => @select_cells(arguments)
       afterDeselect: () => @deselect_cells()
+      afterChange: (changes, source) =>
+        if source != 'remote' && changes
+          for change in changes
+            App.spread_sheet_cells.set_cell_value(
+              { r: change[0], c: change[1] },
+              change[3]
+            )
+      afterRenderer: () => @render_selected_cells()
       minSpareCols: 1
       minSpareRows: 1
       rowHeaders: true
@@ -65,5 +73,10 @@ App.spreadsheet =
         @selected_cells.push(cells)
         cell = @hot.getCell(cells.r, cells.c)
         cell.classList.add('user-' + user.num)
+
+  update_cell: (update) ->
+    location = r: update.location[0], c: update.location[1]
+    value = update.value
+    @hot.setDataAtCell(location.r, location.c, value, 'remote')
 
 $ -> App.spreadsheet.setup()
